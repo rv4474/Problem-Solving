@@ -1,18 +1,11 @@
 package Graph;
 import java.util.*;
-//GFG
-public class BFS {
-        private static void BFS(int node,ArrayList<ArrayList<Integer>> a,int[] vis){
+public class DFS {
+           private static void DFS(int node,ArrayList<ArrayList<Integer>> a,int[] vis){
             vis[node]=1;
-            Queue<Integer> q=new LinkedList<>();
-            q.add(node);
-            while(!q.isEmpty()){
-                Integer n=q.poll();
-                for(Integer it:a.get(n)){
-                    if(vis[it]==0){
-                        vis[it]=1;
-                        q.add(it);
-                    }
+            for(Integer it:a.get(node)){
+                if(vis[it]==0){
+                    DFS(it,a,vis);
                 }
             }
             
@@ -36,9 +29,9 @@ public class BFS {
             for(int i=0;i<v;i++){
                 if(vis[i]==0){
                     c++;
-                    BFS(i,gp,vis);
+                    DFS(i,gp,vis);
                 }
             }
             return c;
         }
-    };
+}
