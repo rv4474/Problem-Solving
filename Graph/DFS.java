@@ -8,7 +8,6 @@ public class DFS {
                     DFS(it,a,vis);
                 }
             }
-            
         }
         static int numProvinces(ArrayList<ArrayList<Integer>> adj, int v) {
             // code here
