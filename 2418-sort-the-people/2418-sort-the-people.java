@@ -1,23 +1,16 @@
 class Solution {
-    static void bubbleSort(int[] arr,String[] num) {
-        int n = arr.length;
-        for (int i = 0; i < n-1; i++) {
-            for (int j = 0; j < n-i-1; j++) {
-                if (arr[j] < arr[j+1]) {
-                    int temp = arr[j];
-                    String s=num[j];
-
-                    arr[j] = arr[j+1];
-                    num[j] = num[j+1];
-
-                    arr[j+1] = temp;
-                    num[j+1] = s;
-                }
-            }
+  
+    public String[] sortPeople(String[] h, int[] n) {
+        TreeMap<Integer,String> map=new TreeMap<>();
+        for(int i=0;i<n.length;i++){
+            map.put(n[i],h[i]);
         }
-    }
-    public String[] sortPeople(String[] names, int[] heights) {
-        bubbleSort(heights,names);
-        return names;
+        String[] ans=new String[n.length];
+        int j=n.length-1;
+        for(Map.Entry<Integer,String> m : map.entrySet()){
+             ans[j--]=m.getValue();
+        }
+
+        return ans;
     }
 }
