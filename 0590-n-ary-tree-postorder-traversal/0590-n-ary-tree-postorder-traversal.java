@@ -18,19 +18,14 @@ class Node {
 */
 
 class Solution {
-    List<Integer> ans;
-    public void post(Node root){
+    public List<Integer> postorder(Node root) {
+        List<Integer> ans=new ArrayList<Integer>();
         if(root!=null) {
         for(int i=0;i<root.children.size();i++){
-            post(root.children.get(i));
+            ans.addAll(postorder(root.children.get(i)));
         }
         ans.add(root.val);
         }
-    }
-    public List<Integer> postorder(Node root) {
-       
-        ans=new ArrayList<Integer>();
-         post(root);
         return ans;
     }
 }
